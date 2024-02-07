@@ -52,4 +52,31 @@ function password(givenObject) {
   let capSiteName = siteName.charAt(0).toUpperCase() + siteName.slice(1);
   return capSiteName + "#" + name + "@" + birthYear;
 }
-console.log(password({ name: "maisha", birthYear: 2002 }));
+
+function monthlySavings(allPayments, livingCost) {
+  if (!Array.isArray(allPayments)) {
+    return "invalid input";
+  }
+  if (typeof livingCost !== "number") {
+    return "invalid input";
+  }
+  if (isNaN(livingCost)) {
+    return "invalid input";
+  }
+
+  let totalPayment = 0;
+  let totalTax = 0;
+
+  for (let i = 0; i < allPayments.length; i++) {
+    totalPayment = totalPayment + allPayments[i];
+    if (allPayments[i] >= 3000) {
+      totalTax = totalTax + allPayments[i] * 0.2;
+    }
+  }
+  let savings = totalPayment - (totalTax + livingCost);
+  if (savings < 0) {
+    return "earn more";
+  } else {
+    return savings;
+  }
+}

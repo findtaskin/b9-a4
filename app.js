@@ -5,7 +5,6 @@ function calculateMoney(ticketCount) {
   let result = ticketCount * 120 - (500 + 8 * 50);
   return result;
 }
-// a, y, i , e , o , u, w
 
 function checkName(givenName) {
   if (typeof givenName === "string") {
@@ -20,4 +19,19 @@ function checkName(givenName) {
     return "invalid";
   }
 }
-console.log(checkName());
+
+function deleteInvalids(givenArray) {
+  if (Array.isArray(givenArray)) {
+    let numberArray = [];
+    for (let i = 0; i < givenArray.length; i++) {
+      if (typeof givenArray[i] === "number") {
+        if (!isNaN(givenArray[i])) {
+          numberArray.push(givenArray[i]);
+        }
+      }
+    }
+    return numberArray;
+  } else {
+    return "Invalid Array";
+  }
+}

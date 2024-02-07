@@ -35,3 +35,21 @@ function deleteInvalids(givenArray) {
     return "Invalid Array";
   }
 }
+
+function password(givenObject) {
+  let name = givenObject.name;
+  let birthYear = givenObject.birthYear;
+  let siteName = givenObject.siteName;
+
+  if (birthYear == undefined || siteName == undefined || name == undefined) {
+    return "invalid";
+  }
+
+  if (birthYear < 1000 || birthYear > 9999) {
+    return "invalid";
+  }
+
+  let capSiteName = siteName.charAt(0).toUpperCase() + siteName.slice(1);
+  return capSiteName + "#" + name + "@" + birthYear;
+}
+console.log(password({ name: "maisha", birthYear: 2002 }));
